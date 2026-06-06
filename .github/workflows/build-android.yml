@@ -23,13 +23,13 @@ jobs:
         run: npm install -g nativescript
         
       - name: Install Project Dependencies
-        run: npm install
+        run: cd my-app && npm install
         
       - name: Build APK
-        run: ns build android
+        run: cd my-app && ns build android
         
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: app-release-apk
-          path: platforms/android/app/build/outputs/apk/debug/*.apk
+          path: my-app/platforms/android/app/build/outputs/apk/debug/*.apk
